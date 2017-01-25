@@ -9,7 +9,7 @@ const logStuff = () => {
 const Header = () => {
   return (
     <div className="Header">
-      <button onClick={(e) => logStuff() }>Settings</button>
+      <button className="settings-button" onClick={(e) => logStuff() }>Settings</button>
       <h1>
         CHUCK NORRIS JOKE MACHINE
       </h1>

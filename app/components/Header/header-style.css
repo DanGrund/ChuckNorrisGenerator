@@ -10,7 +10,7 @@ h1 {
   height: 175px;
 }
 
-button {
+.settings-button {
   border-radius: 50%;
   display: inline-block;
   float: right;
