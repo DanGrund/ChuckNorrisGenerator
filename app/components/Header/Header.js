@@ -9,9 +9,9 @@ const logStuff = () => {
 const Header = () => {
   return (
     <div className="Header">
+      <button onClick={(e) => logStuff() }>Settings</button>
       <h1>
         CHUCK NORRIS JOKE MACHINE
-        <button onClick={() => props.handleClick() }>Settings</button>
       </h1>
 
     </div>
