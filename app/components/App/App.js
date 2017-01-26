@@ -9,11 +9,14 @@ export default class App extends React.Component {
       jokes:[],
       firstName: 'Chuck',
       lastName: 'Norris',
+      parentalControls: false,
     }
   }
 
   pullDownLols(numberOfLols) {
-    fetch(`http://api.icndb.com/jokes/random/${numberOfLols}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}`)
+    let parentals = this.state.parentalControls ? '&exclude=[nerdy]' : '';
+    
+    fetch(`http://api.icndb.com/jokes/random/${numberOfLols}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}${parentals}`)
     .then((data) => {
       return data.json()
     })
@@ -26,14 +29,18 @@ export default class App extends React.Component {
   }
 
   changeName(name) {
-    // console.log(name.split(' ')[0])
     this.setState({ firstName: name.split(' ')[0], lastName: name.split(' ')[1] })
+  }
+
+  parentalControls() {
+    this.setState({ parentalControls: !this.state.parentalControls })
   }
 
   render(){
     const Children = React.cloneElement(this.props.children, {
       pullDownLols: this.pullDownLols.bind(this),
       changeName: this.changeName.bind(this),
+      parentalControls: this.parentalControls.bind(this),
       jokes: this.state.jokes
     })
 
