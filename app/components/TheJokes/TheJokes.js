@@ -5,7 +5,7 @@ import SingleJoke from '../SingleJoke/SingleJoke'
 
 const TheJokes = (props) => {
 
-  let Jokes = props.jokes.map((joke, i) => <SingleJoke key={i} joke={joke} />)
+  let Jokes = props.jokes.map((joke, i) => <SingleJoke key={i} joke={joke} addToFavorites={props.addToFavorites}/>)
 
   return(
     <div>

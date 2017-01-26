@@ -7,6 +7,7 @@ export default class App extends React.Component {
     super()
     this.state = {
       jokes:[],
+      favoriteJokes:[],
       firstName: 'Chuck',
       lastName: 'Norris',
       parentalControls: false,
@@ -15,7 +16,7 @@ export default class App extends React.Component {
 
   pullDownLols(numberOfLols) {
     let parentals = this.state.parentalControls ? '&exclude=[nerdy]' : '';
-    
+
     fetch(`http://api.icndb.com/jokes/random/${numberOfLols}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}${parentals}`)
     .then((data) => {
       return data.json()
@@ -36,12 +37,20 @@ export default class App extends React.Component {
     this.setState({ parentalControls: !this.state.parentalControls })
   }
 
+  addToFavorites(joke) {
+    let newArray = this.state.favoriteJokes;
+    newArray.push(joke)
+    this.setState({favoriteJokes: newArray})
+  }
+
   render(){
     const Children = React.cloneElement(this.props.children, {
       pullDownLols: this.pullDownLols.bind(this),
       changeName: this.changeName.bind(this),
       parentalControls: this.parentalControls.bind(this),
-      jokes: this.state.jokes
+      jokes: this.state.jokes,
+      favoriteJokes: this.state.favoriteJokes,
+      addToFavorites: this.addToFavorites.bind(this)
     })
 
     return(

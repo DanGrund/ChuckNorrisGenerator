@@ -4,7 +4,9 @@ const SingleJoke = (props) => {
   return (
     <div className='Single-Joke'>
       {props.joke}
-      <button>⭐️</button>
+      <button
+        onClick={()=>props.addToFavorites(props.joke)}
+      >⭐️</button>
     </div>
   )
 }
