@@ -16,7 +16,9 @@ export default class Controls extends React.Component{
           <input
             value={this.state.number}
             onChange={(e)=>this.setState({number: e.target.value})}></input>
-          <button>favorites</button>
+          <button
+            onClick={()=>{this.props.toggleFavorites()}}
+            >favorites</button>
       </div>
     );
   }

@@ -11,6 +11,7 @@ export default class App extends React.Component {
       firstName: 'Chuck',
       lastName: 'Norris',
       parentalControls: false,
+      showFavorites: false,
     }
   }
 
@@ -37,6 +38,10 @@ export default class App extends React.Component {
     this.setState({ parentalControls: !this.state.parentalControls })
   }
 
+  toggleFavorites() {
+    this.setState({showFavorites: !this.state.showFavorites })
+  }
+
   addToFavorites(joke) {
     let newArray = this.state.favoriteJokes;
     newArray.push(joke)
@@ -50,7 +55,9 @@ export default class App extends React.Component {
       parentalControls: this.parentalControls.bind(this),
       jokes: this.state.jokes,
       favoriteJokes: this.state.favoriteJokes,
-      addToFavorites: this.addToFavorites.bind(this)
+      addToFavorites: this.addToFavorites.bind(this),
+      toggleFavorites: this.toggleFavorites.bind(this),
+      showFavorites: this.state.showFavorites,
     })
 
     return(
