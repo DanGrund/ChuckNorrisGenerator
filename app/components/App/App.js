@@ -7,6 +7,7 @@ export default class App extends React.Component {
     super()
     this.state = {
       jokes:[],
+      jokeys:[],
       favoriteJokes:[],
       firstName: 'Chuck',
       lastName: 'Norris',
@@ -22,12 +23,17 @@ export default class App extends React.Component {
     .then((data) => {
       return data.json()
     })
-    .then((data) => {
-      return data.value.map(value => value.joke)
-    })
-    .then(dataArray => {
-      this.setState({ jokes: dataArray })
-    })
+    // .then((data) => {
+    //   return data.value.map(value => value.joke)
+    // })
+    // .then(dataArray => {
+    //   this.setState({ jokes: dataArray })
+    // })
+      .then((data) => {
+        let jokeArray = data.value.map(joke => Object.assign(joke, { favorite: false }))
+        this.setState({ jokes: jokeArray})
+      })
+
   }
 
   changeName(name) {
@@ -48,6 +54,10 @@ export default class App extends React.Component {
     this.setState({favoriteJokes: newArray})
   }
 
+  testFeature(){
+    console.log(this.state.jokeys[1].joke)
+  }
+
   render(){
     const Children = React.cloneElement(this.props.children, {
       pullDownLols: this.pullDownLols.bind(this),
@@ -64,6 +74,8 @@ export default class App extends React.Component {
       <div>
         <Header/>
         <FeatureJoke/>
+        <button
+          onClick={()=>this.testFeature()}>testfeature</button>
         {Children}
       </div>
     )
