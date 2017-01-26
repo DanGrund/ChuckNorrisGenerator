@@ -4,15 +4,17 @@ h1 {
   padding-top: 100px;
   background-color: rgba(255, 255, 255, 0.3);
   font-family: "Bungee Shade", sans-serif;
-  font-size: 25px;
+  font-size: 50px;
   color: white;
   text-align: center;
   height: 175px;
 }
 
 .settings-button {
+  position: absolute;
+  top: 5%;
+  right: 5%;
   border-radius: 50%;
   display: inline-block;
-  float: right;
   height: 75px;
 }

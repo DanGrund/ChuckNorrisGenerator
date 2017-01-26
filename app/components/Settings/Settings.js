@@ -25,7 +25,7 @@ export default class Settings extends React.Component {
         <br/>
         parental controls
         <label className="switch">
-          <input type="checkbox" onClick={()=>this.props.parentalControls()}/>
+          <input type="checkbox" checked={this.props.parentalControlsBool} onClick={()=>this.props.parentalControlToggle()}/>
           <div className="slider"></div>
         </label>
       </div>
