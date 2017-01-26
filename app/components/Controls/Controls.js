@@ -1,11 +1,13 @@
 import React from 'react'
 import './controls-style';
 
-const Controls = () => {
+const Controls = (props) => {
   return (
     <div className="Controls">
       <form>
-        <button>new jokes</button><input></input><button>favorites</button>
+        <button onClick={()=>{this.props.pullDownLols(4)}}>new jokes</button>
+        <input></input>
+        <button>favorites</button>
       </form>
     </div>
   );

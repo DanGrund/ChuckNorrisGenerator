@@ -11,11 +11,15 @@ export default class App extends React.Component {
   }
 
   pullDownLols(numberOfLols) {
-    fetch(`http://api.icndb.com/jokes/random/${numberOfLols}?escape=javascript`).then((data) => {
+    // console.log('bae')
+    fetch(`http://api.icndb.com/jokes/random/${numberOfLols}?escape=javascript`)
+    .then((data) => {
       return data.json()
-    }).then((data) => {
+    })
+    .then((data) => {
       return data.value.map(value => value.joke)
-    }).then(dataArray => {
+    })
+    .then(dataArray => {
       this.setState({ jokes: dataArray })
     })
   }
@@ -30,7 +34,7 @@ export default class App extends React.Component {
       <div>
         <Header/>
         <FeatureJoke/>
-        {/* <button onClick={()=>this.fetchJokes(4)}></button> */}
+        <button onClick={()=>this.pullDownLols(5)}></button>
         {Children}
       </div>
     )
