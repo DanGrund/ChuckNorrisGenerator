@@ -1,13 +1,33 @@
 import React from 'react';
 
-const Settings = () => {
+export default class Settings extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      name: ''
+    }
+  }
+
+  render(){
     return(
       <div>
-        This badboy mounts when the settings button gets hit, unmounting TheJokes component
-        <p>it'll have a name change field, and a parental control toggle</p>
-
+        <input
+          value={this.state.name}
+          onChange={(e)=>{this.setState({name: e.target.value})}}
+        />
+        <button
+          onClick={()=>this.props.changeName(this.state.name)}
+        >change name</button>
+        <button
+          onClick={()=>this.props.changeName('Chuck Norris')}
+        >reset</button>
+        <br/>
+        parental controls
+        <form>
+          <button type='radio' value='off'>off</button>
+          <button type='radio' value='on'>on</button>
+        </form>
       </div>
     )
+  }
 }
-
-export default Settings

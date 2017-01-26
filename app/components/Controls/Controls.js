@@ -1,16 +1,24 @@
 import React from 'react'
 import './controls-style';
 
-const Controls = (props) => {
-  return (
-    <div className="Controls">
-      <form>
-        <button onClick={()=>{this.props.pullDownLols(4)}}>new jokes</button>
-        <input></input>
-        <button>favorites</button>
-      </form>
-    </div>
-  );
-}
+export default class Controls extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state={
+      number:'',
+    }
+  }
 
-export default Controls
+  render(){
+    return (
+      <div className="Controls">
+          <button disabled = {!this.state.number} onClick={()=>{this.props.getJokes(this.state.number); this.setState({number:''})}}>new jokes</button>
+          <input
+            value={this.state.number}
+            onChange={(e)=>this.setState({number: e.target.value})}></input>
+          <button>favorites</button>
+      </div>
+    );
+  }
+
+}

@@ -7,12 +7,13 @@ export default class App extends React.Component {
     super()
     this.state = {
       jokes:[],
+      firstName: 'Chuck',
+      lastName: 'Norris',
     }
   }
 
   pullDownLols(numberOfLols) {
-    // console.log('bae')
-    fetch(`http://api.icndb.com/jokes/random/${numberOfLols}?escape=javascript`)
+    fetch(`http://api.icndb.com/jokes/random/${numberOfLols}/?escape=javascript&firstName=${this.state.firstName}&lastName=${this.state.lastName}`)
     .then((data) => {
       return data.json()
     })
@@ -24,9 +25,15 @@ export default class App extends React.Component {
     })
   }
 
+  changeName(name) {
+    // console.log(name.split(' ')[0])
+    this.setState({ firstName: name.split(' ')[0], lastName: name.split(' ')[1] })
+  }
+
   render(){
     const Children = React.cloneElement(this.props.children, {
       pullDownLols: this.pullDownLols.bind(this),
+      changeName: this.changeName.bind(this),
       jokes: this.state.jokes
     })
 
@@ -34,7 +41,6 @@ export default class App extends React.Component {
       <div>
         <Header/>
         <FeatureJoke/>
-        <button onClick={()=>this.pullDownLols(5)}></button>
         {Children}
       </div>
     )
