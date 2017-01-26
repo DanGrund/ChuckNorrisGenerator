@@ -15,10 +15,12 @@ export default class Header extends React.Component {
   }
 
   render(){
+
+
     return (
       <div className="Header">
-
-        <Link to={this.state.settings?'/settings' : '/jokes'}>
+        
+        <Link to={this.state.settings?'/jokes' : '/settings'}>
           <button
             className="settings-button"
             onClick={() => this.setState({ settings: !this.state.settings })}
