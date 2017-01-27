@@ -14,7 +14,7 @@ export default class Settings extends React.Component {
     return(
       <div className='settings'>
         Set Name:
-        <input
+        <input className='name-state'
           value={this.state.name}
           onChange={(e)=>{this.setState({name: e.target.value})}}
         />
