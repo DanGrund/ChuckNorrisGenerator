@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import {expect} from 'chai';
+import {assert, expect} from 'chai';
 import sinon from 'sinon'
 
 import App from './App';
@@ -10,10 +10,17 @@ import FeatureJoke from '../FeatureJoke/FeatureJoke';
 
 
 describe('<App/>', () => {
-  it.skip('should keep track of previous guesses in state', () => {
-    const wrapper = mount(<Application />);
-    wrapper.setState({guessArray: [1,2,3]
+
+  it.skip('should render a Header Component', ()=>{
+    const wrapper = shallow(<App/>)
+    expect(wrapper.contains(<Header/>)).to.equal(true);
+  })
+
+  it.skip('should keep track of jokes in state', function() {
+    const wrapper = mount(<App />);
+    wrapper.setState({jokes: ["ha","ha","ha"]
     });
-    expect(wrapper.state('guessArray').length).to.equal(3);
+    wrapper.update();
+    expect(wrapper.state('jokes').length).to.equal(3);
   });
 });
