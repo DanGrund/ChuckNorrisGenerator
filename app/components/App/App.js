@@ -57,5 +57,10 @@ export default class App extends React.Component {
         {Children}
       </div>
     )
-    }
+  }
+
+}
+
+App.propTypes = {
+  Children: React.PropTypes.element
 }

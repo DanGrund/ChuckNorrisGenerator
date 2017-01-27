@@ -16,4 +16,9 @@ const SingleJoke = (props) => {
   )
 }
 
+SingleJoke.propTypes={
+  addToFavorites: React.PropTypes.func,
+  joke: React.PropTypes.string,
+}
+
 export default SingleJoke;

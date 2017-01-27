@@ -40,3 +40,8 @@ export default class Controls extends React.Component{
   }
 
 }
+
+Controls.propTypes = {
+  getJokes: React.PropTypes.func,
+  props: React.PropTypes.object,
+}

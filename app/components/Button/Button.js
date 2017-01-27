@@ -12,5 +12,11 @@ const Button = (props) => {
     </button>
   );
 }
+Button.propTypes = {
+  id: React.PropTypes.string,
+  className: React.PropTypes.string,
+  handleClick: React.PropTypes.func,
+  disabled: React.PropTypes.bool,
+}
 
 export default Button;
