@@ -26,7 +26,7 @@ export default class Settings extends React.Component {
         <Button
           text="reset"
           handleClick={()=>this.props.changeName("Chuck Norris")}/>
-          
+
         <div className='parentals'>
           parental controls
           <label className="switch">
@@ -37,4 +37,10 @@ export default class Settings extends React.Component {
       </div>
     )
   }
+}
+
+Settings.propTypes = {
+  changeName: React.PropTypes.func,
+  parentalControlsBool: React.PropTypes.bool,
+  parentalControlToggle: React.PropTypes.func,
 }

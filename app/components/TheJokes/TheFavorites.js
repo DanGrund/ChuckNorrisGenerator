@@ -16,4 +16,10 @@ const TheFavorites = (props) => {
 
 }
 
+TheFavorites.propTypes={
+  favoriteJokes: React.PropTypes.array,
+  pullDownLols: React.PropTypes.func,
+  toggleFavorites: React.PropTypes.func,
+}
+
 export default TheFavorites

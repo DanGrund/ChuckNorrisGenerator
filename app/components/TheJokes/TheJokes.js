@@ -17,4 +17,11 @@ const TheJokes = (props) => {
 
 }
 
+TheJokes.propTypes={
+  jokes: React.PropTypes.array,
+  pullDownLols: React.PropTypes.func,
+  toggleFavorites: React.PropTypes.func,
+  addToFavorites: React.PropTypes.func,
+}
+
 export default TheJokes
