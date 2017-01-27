@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import './styles';
+import './reset'
+import './styles'
 import App from './components/App/App'
 import TheJokes from './components/TheJokes/TheJokes'
 import TheFavorites from './components/TheJokes/TheFavorites'
